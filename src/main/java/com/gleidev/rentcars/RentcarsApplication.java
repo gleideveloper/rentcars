@@ -1,23 +1,10 @@
 package com.gleidev.rentcars;
 
-import com.gleidev.rentcars.model.entity.CarRental;
-import com.gleidev.rentcars.model.entity.Vehicle;
-import com.gleidev.rentcars.service.MessagingService;
-import com.gleidev.rentcars.service.Payment;
-import com.gleidev.rentcars.service.RentalService;
-import com.gleidev.rentcars.service.ServiceLocator;
-import com.gleidev.rentcars.service.impl.PaymentBasicImpl;
-import com.gleidev.rentcars.service.impl.PaymentDiscountImpl;
-import com.gleidev.rentcars.service.impl.TaxUSAServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.kafka.annotation.EnableKafka;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Scanner;
 
 @EnableKafka
 @SpringBootApplication
@@ -25,15 +12,6 @@ public class RentcarsApplication {
 
 	public static void main(String[] args) throws ParseException {
 		SpringApplication.run(RentcarsApplication.class, args);
-
-		MessagingService service = ServiceLocator.getService("EmailService");
-		String email = service.getMessageBody();
-
-		MessagingService smsService = ServiceLocator.getService("SMSService");
-		String sms = smsService.getMessageBody();
-
-		MessagingService emailService = ServiceLocator.getService("EmailService");
-		String newEmail = emailService.getMessageBody();
 
 		/*Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
